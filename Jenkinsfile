@@ -22,6 +22,11 @@ node {
         }
     }
 
+    stage('Deploy project') {
+      docker.image('test-repo:latest').withRun('-p 3000:3000') {
+        sh 'echo "Deployed project"'
+      }
+    }
     // stage('Push image') {
     //     /* Finally, we'll push the image with two tags:
     //      * First, the incremental build number from Jenkins
