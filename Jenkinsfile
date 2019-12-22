@@ -24,7 +24,7 @@ node {
 
     stage('Deploy project') {
       sh 'docker rm -f deploy_testrep_1'
-      sh 'docker-compose up -f /deploy/docker-compose.yml -d'
+      sh 'docker-compose -f /deploy/docker-compose.yml up -d'
       // sh 'docker run -p 3000:3000 -d --name test-repo test-repo:latest'
     }
     // stage('Push image') {
