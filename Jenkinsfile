@@ -23,9 +23,8 @@ node {
     }
 
     stage('Deploy project') {
-      docker.image('test-repo:latest').withRun('-p 3000:3000') {
-        sh 'echo "Deployed project"'
-      }
+      // docker.image('test-repo:latest').withRun('-p 3000:3000')
+      sh 'docker run -p 3000:3000 -d --name test-repo test-repo:latest'
     }
     // stage('Push image') {
     //     /* Finally, we'll push the image with two tags:
